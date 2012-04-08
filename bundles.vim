@@ -21,7 +21,6 @@ Bundle "git://github.com/kien/ctrlp.vim.git"
 Bundle "git://github.com/tpope/vim-surround.git"
 Bundle "git://github.com/Townk/vim-autoclose.git"
 Bundle "tComment"
-"Bundle "git://github.com/jiangmiao/auto-pairs.git"
 Bundle "git://github.com/vim-scripts/ZoomWin.git"
 Bundle "git://github.com/ervandew/supertab.git"
 
