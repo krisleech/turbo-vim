@@ -270,19 +270,6 @@ let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 " Execute current buffer as ruby
 map <S-r> :w !ruby<CR>
 
-" map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
-" map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
-" map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
-" map <leader>gh :CommandTFlush<cr>\|:CommandT app/helpers<cr>
-" map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
-" map <leader>gp :CommandTFlush<cr>\|:CommandT public<cr>
-" map <leader>gs :CommandTFlush<cr>\|:CommandT public/stylesheets<cr>
-" map <leader>ga :CommandTFlush<cr>\|:CommandT app/assets<cr>
-
-" View routes or Gemfile in large split
-" map <leader>gr :topleft :split config/routes.rb<cr>
-" map <leader>gg :topleft 100 :split Gemfile<cr>
-
 " Skip to Model, View or Controller
 map <Leader>m :Rmodel 
 map <Leader>v :Rview 
@@ -318,9 +305,8 @@ if has("gui_running")
   set guioptions-=b " no scrollbar on the bottom
   set guioptions=aiA 
   set mouse=v
-  set guifont=Monaco:h12 "<- Maybe a good idea when using mac
+  set guifont=Monaco:h12
 endif
-set guifont=Monaco:h12
 
 "  ---------------------------------------------------------------------------
 "  Directories
@@ -348,3 +334,4 @@ endif
 " When vimrc, either directly or via symlink, is edited, automatically reload it
 autocmd! bufwritepost .vimrc source %
 autocmd! bufwritepost vimrc source %
+autocmd! bufwritepost bundles.vim source %
