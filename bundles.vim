@@ -29,7 +29,7 @@ Bundle "git://github.com/tpope/vim-rails.git"
 
 " Ruby
 Bundle "git://github.com/tpope/vim-rvm.git"
-Bundle "git://github.com/vim-scripts/rubycomplete.vim.git"
+" Bundle "git://github.com/vim-scripts/rubycomplete.vim.git"
 Bundle "git://github.com/tpope/vim-endwise.git"
 
 " Git
