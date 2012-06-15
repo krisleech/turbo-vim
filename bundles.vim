@@ -30,6 +30,7 @@ Bundle "tComment"
 Bundle "git://github.com/vim-scripts/ZoomWin.git"
 Bundle "git://github.com/ervandew/supertab.git"
 Bundle "git://github.com/gmarik/snipmate.vim.git"
+Bundle "git://github.com/airblade/vim-rooter.git"
 
 " Rails
 Bundle "git://github.com/tpope/vim-rails.git"
