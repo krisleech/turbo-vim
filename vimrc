@@ -1,4 +1,5 @@
 set nocompatible               " be iMproved
+set t_Co=256
 
 "  ---------------------------------------------------------------------------
 "  Plugins
@@ -10,7 +11,7 @@ silent! runtime bundles.vim
 "  General
 "  ---------------------------------------------------------------------------
 
-filetype plugin indent on     
+filetype plugin indent on
 let mapleader = ","
 let g:mapleader = ","
 set modelines=0
@@ -51,9 +52,17 @@ set undofile
 " set winminheight=5
 " set winheight=999
 
-colorscheme solarized
-set background=light " or dark
 set t_Co=256
+color desert-warm-256
+" set background=dark
+" " solarized options 
+" let g:solarized_termcolors = 256
+" let g:solarized_visibility = "high"
+" let g:solarized_contrast = "high"
+" colorscheme solarized
+" 
+" fix autocomplete menu colours
+" highlight Pmenu ctermbg=238 gui=bold
 
 set splitbelow splitright
 
@@ -65,6 +74,7 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
+set shiftround
 
 set nowrap
 set textwidth=79
@@ -76,9 +86,8 @@ if exists("+colorcolumn")
   set colorcolumn=80
 endif
 
-"display tabs and trailing spaces
-set list
-set listchars=tab:▷⋅,trail:⋅,nbsp:⋅"
+" display tabs and trailing spaces
+set list listchars=tab:▷⋅,trail:⋅,nbsp:⋅"
 
 "  ---------------------------------------------------------------------------
 "  Status Line
@@ -184,7 +193,7 @@ map <leader>e :edit %%
 map <leader>v :view %%
 
 " Ignore some binary, versioning and backup files when auto-completing
-set wildignore=.svn,CVS,.git,*.swp,*.jpg,*.png,*.gif,*.pdf,*.bak
+set wildignore+=.svn,CVS,.git,*.swp,*.jpg,*.png,*.gif,*.pdf,*.bak,*.tar,*.zip,*.tgz
 " Set a lower priority for .old files
 set suffixes+=.old
 
@@ -196,9 +205,14 @@ nmap <leader><Esc> :q!<CR>
 " EXTERNAL COPY / PASTE
 " Press F2 before and after pasting from an external Window, not required for
 " MacVim
-set pastetoggle=<F2>
-map <C-v> "+gP<CR>
-vmap <C-c> "+y
+" set pastetoggle=<F2>
+" map <C-v> "+gP<CR>
+" vmap <C-c> "+y
+vmap <C-x> :!pbcopy<CR>  
+vmap <C-c> :w !pbcopy<CR><CR> 
+
+" ctags
+map <leader>rt :!ctags --extra=+f --languages=-javascript --exclude=.git --exclude=log -R * `rvm gemdir`/gems/* `rvm gemdir`/bundler/gems/*<CR><C-M>
 
 "  ---------------------------------------------------------------------------
 "  Function Keys
@@ -208,10 +222,14 @@ vmap <C-c> "+y
 "  Plugins
 "  ---------------------------------------------------------------------------
 
-" TODO: Ctrlp is using ctrl+p which normally use to cycle paste buffers
+" Ctrlp
 let g:ctrlp_map = ',f'
 
+" ZoomWin
+map <leader>z :ZoomWin<CR>
+
 " NERDTree
+map <leader>p :NERDTreeToggle<cr>
 let NERDTreeShowBookmarks = 0
 let NERDChristmasTree = 1
 let NERDTreeWinPos = "left"
@@ -220,21 +238,8 @@ let NERDTreeQuitOnOpen = 1
 let NERDTreeWinSize = 50 
 let NERDTreeChDirMode = 2
 let NERDTreeDirArrows = 1
-" open file browser
-map <leader>p :NERDTreeToggle<cr>
-
-" TagList
-set tags=./tags;
-" Support for https://github.com/ivalkeen/guard-ctags-bundler
-set tags+=gems.tags
-map <leader>l :TlistToggle <cr>
-let Tlist_Use_Right_Window = 1
-let Tlist_WinWidth = 60
-" Generate ctags for all bundled gems as well
-map <leader>rt :!ctags --extra=+f --languages=-javascript --exclude=.git --exclude=log -R * `rvm gemdir`/gems/* `rvm gemdir`/bundler/gems/*<CR><C-M>
 
 " Use only current file to autocomplete from tags
-" set complete=.,t
 set complete=.,w,b,u,t,i
 
 " Buffer window (find file in open buffers)
@@ -250,7 +255,7 @@ if filereadable(my_home . '.vim/bundle/vim-autocorrect/autocorrect.vim')
   source ~/.vim/bundle/vim-autocorrect/autocorrect.vim
 endif
 
-let g:cssColorVimDoNotMessMyUpdatetime = 1
+" let g:cssColorVimDoNotMessMyUpdatetime = 1
 
 " Easy commenting
 nnoremap // :TComment<CR>
@@ -292,6 +297,10 @@ au BufNewFile,BufReadPost *.coffee setl foldmethod=indent
 au BufNewFile,BufReadPost *.scss setl foldmethod=indent
 au BufNewFile,BufReadPost *.sass setl foldmethod=indent
 au BufRead,BufNewFile *.scss set filetype=scss
+
+"  ---------------------------------------------------------------------------
+"  Misc File Types
+"  ---------------------------------------------------------------------------
 
 "  ---------------------------------------------------------------------------
 "  GUI

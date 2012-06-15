@@ -12,6 +12,12 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
+" Color schemes
+Bundle 'flazz/vim-colorschemes'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'ColorSchemeMenuMaker'
+Bundle 'desert-warm-256'
+
 " Files
 Bundle "git://github.com/mileszs/ack.vim.git"
 Bundle "git://github.com/scrooloose/nerdtree.git"
@@ -23,14 +29,16 @@ Bundle "git://github.com/Townk/vim-autoclose.git"
 Bundle "tComment"
 Bundle "git://github.com/vim-scripts/ZoomWin.git"
 Bundle "git://github.com/ervandew/supertab.git"
+Bundle "git://github.com/gmarik/snipmate.vim.git"
 
 " Rails
 Bundle "git://github.com/tpope/vim-rails.git"
 
 " Ruby
 Bundle "git://github.com/tpope/vim-rvm.git"
-" Bundle "git://github.com/vim-scripts/rubycomplete.vim.git"
 Bundle "git://github.com/tpope/vim-endwise.git"
+Bundle "git://github.com/kana/vim-textobj-user.git"
+Bundle "git://github.com/nelstrom/vim-textobj-rubyblock.git"
 
 " Git
 Bundle "git://github.com/tpope/vim-fugitive"
@@ -50,8 +58,6 @@ Bundle 'git://github.com/altercation/vim-colors-solarized.git'
 
 " Bundle "git://github.com/tpope/vim-bundler.git"
 
-" Bundle "git://github.com/kana/vim-textobj-user.git"
-" Bundle "git://github.com/nelstrom/vim-textobj-rubyblock.git"
 
 " Bundle "git://github.com/sophacles/vim-bundle-sparkup.git"
 " Bundle "git://github.com/panozzaj/vim-autocorrect.git"
@@ -60,8 +66,6 @@ Bundle 'git://github.com/altercation/vim-colors-solarized.git'
 " Bundle "git://github.com/godlygeek/tabular.git"
 " Bundle "git://github.com/vim-scripts/Gist.vim.git"
 " Bundle "git://github.com/vim-scripts/L9.git"
-" Bundle "git://github.com/gmarik/snipmate.vim.git"
-" Bundle "git://github.com/krisleech/snipmate-snippets.git"
 " Bundle "jQuery"
 " Bundle "git://github.com/pangloss/vim-javascript.git"
 " Bundle "git://github.com/tpope/vim-markdown.git"

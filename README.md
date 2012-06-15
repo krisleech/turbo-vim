@@ -21,13 +21,11 @@ The leader is mapped to `,`
 
 `,p`     - File browser (NerdTree)
 
-`,f`     - Find in Files (Command-t)
+`,f`     - Find in Files (Ctrlp)
 
 `Space`  - Search in buffer
 
 `,a`     - Search in files (Ack)
-
-`,b`     - Search open buffers (Fuzzy Finder)
 
 `,d`     - close buffer
 
@@ -35,13 +33,7 @@ The leader is mapped to `,`
 
 `,Space` - Remove search highlighting
 
-`,t`     - Show tags
-
 `//`     - Toggle comments (T-Comment)
-
-`F5`     - Undo history (GUndo)
-
-`F6`     - Auto format
 
 `Tab`    - Next buffer
 
@@ -53,19 +45,9 @@ The leader is mapped to `,`
 
 `,v`     - Jump to view
 
-`,gm`    - Find in app/models
+`,c`     - Jump to controller
 
-`,gc`    - Find in app/controller
-
-`,gv`    - Find in app/views
-
-`,gr`    - Open routes in split
-
-`,gg`    - Open Gemfile in split
-
-`,vir`   - Visual select inner Ruby block
-
-`,var`   - Visual select around Ruby block
+`,rt`    - Generate tags for project and gems
 
 ### In Insert mode (`i`)
 
@@ -86,6 +68,14 @@ See `.vimrc` for more.
 `:Rview` - jump to view
 
 `:help rails`
+
+### Turbux (,t / ,T)
+
+Runs a test in a tmux pane.
+
+### ZoomWin (,z)
+
+Zoom the current window
 
 ### coffee-script
 
@@ -110,12 +100,6 @@ Provides text-objects for Ruby blocks
 `dar` (delete around Ruby)
 
 http://vimcasts.org/blog/2010/12/a-text-object-for-ruby-blocks/
-
-### sparkup (`ctrl+e`)
-
-Expand CSS selectors `div.event` in to markup `<div class='event'></div>`
-
-http://net.tutsplus.com/articles/general/quick-tip-even-quicker-markup-with-sparkup/
 
 ### fugitive         
 
@@ -148,49 +132,6 @@ For example `conadus` would find `controllers/admin/users`
 `Ctrl + p` - previous result
 
 `Ctrl + c` - cancel
-
-### snipmate (`TAB`)         
-
-Snippets, press `TAB` to expand
-
-Examples (in a Ruby file):
-
-`def<tab>`
-
-`.each<tab>`
-
-`.eado<tab>`
-
-`ife<tab>`
-
-### gist (`:Gist`)
-
-Gist current file/selection
-
-Requires setting GITHUB_TOKEN and GITHUB_USER Env's
-
-### gundo (`F5`)
-
-Navigate changes history tree 
-
-http://vimcasts.org/episodes/undo-branching-and-gundo-vim/
-
-### tabular
-
-Align stuff
-
-http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
-
-### conque
-
-Terminal/Interactive programs
-
-`:Conque zsh`
-
-`:Conque ls`
-
-Note you can also drop back to the terminal using Ctrl+Z, to get
-back to Vim with `%1`. This is not a feature of Conque.
 
 ### tcomment (`//`)
 
@@ -247,7 +188,7 @@ correct text object or motion.
 
 `ds`       - delete surrounding
 
-*Tags*
+*HTML tags*
 
 `yss<p>`  - surround line in `<p>` tags
 
@@ -264,33 +205,6 @@ A colour scheme, both light and dark version
 ### fuzzyfinder (`,b`)
 
 Find open buffer by path/filename
-
-### taglist (`,l`)
-
-Lists method names, provide auto complete
-
-`,rt` Generates Ruby tags, this will include tags for your code and gems if
-using RVM.
-
-If you are not using RVM you can run `ctags -R` in project root to generate tags.
-
-Or to run directly from within vim `:!ctags -R`.
-
-`Ctrl+]` - skips to the tag under the cursor
-
-### preview (`,P`)
-
-Preview markup files such as Markdown and RDoc
-
-Each format requires the relevant gem to be installed such as `bluecloth`
-for Markdown and `github-markup` for RDoc.
-
-### syntastic
-
-Syntax checking
-
-When a file is saved the syntax is automatically checked and any errors
-reported.
 
 ### vundle
 
