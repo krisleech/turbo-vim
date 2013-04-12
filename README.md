@@ -84,7 +84,9 @@ See `.vimrc` for more.
 ### Turbux + Vimux (,t / ,T / ,tt)
 
 `,t` - run all tests for current buffer
+
 `,T` - run test for current line
+
 `,tt` - run all tests
 
 Runs specs in a tmux pane. Vim must be running in a tmux session for this to
