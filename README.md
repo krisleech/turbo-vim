@@ -1,6 +1,16 @@
-# Ruby/Rails centric vimfiles and installer
+# Turbo VIM for Ruby/Rails
 
-With a great colour scheme and support for auto-complete, git, rvm and sparkup.
+```
+  _              _                   _
+ | |_ _   _ _ __| |__   ___   __   _(_)_ __ ___
+ | __| | | | '__| '_ \ / _ \  \ \ / / | '_ ` _ \
+ | |_| |_| | |  | |_) | (_) |  \ V /| | | | | | |
+  \__|\__,_|_|  |_.__/ \___/    \_/ |_|_| |_| |_|
+```
+
+Vim configuration with support for Rspec, Rails 3, RVM and Git.
+
+Vim must be run from within a tmux session to run specs asynchronously.
 
 ## Requirements
 
@@ -11,7 +21,7 @@ Introduction to Vim: http://blog.interlinked.org/tutorials/vim_tutorial.html
 
 ## Quick Install
 
-    curl https://raw.github.com/krisleech/vimfiles/master/bootstrap.sh -o - | sh
+    curl https://raw.github.com/krisleech/turbo-vim/master/bootstrap.sh -o - | sh
 
 ## Basic Mappings
 
@@ -25,7 +35,7 @@ The leader is mapped to `,`
 
 `Space`  - Search in buffer
 
-`,a`     - Search in files (Ack)
+`,a`     - Search in files
 
 `,d`     - close buffer
 
@@ -59,9 +69,11 @@ See `.vimrc` for more.
 
 ## Plugins
 
-### rails            
+### rails
 
 *Lots* of stuff - get to know this plugin!
+
+`:A` - jump to/from test
 
 `:Rmodel` - jump to model
 
@@ -69,21 +81,21 @@ See `.vimrc` for more.
 
 `:help rails`
 
-### Turbux (,t / ,T)
+### Turbux + Vimux (,t / ,T / ,tt)
 
-Runs a test in a tmux pane.
+`,t` - run all tests for current buffer
+`,T` - run test for current line
+`,tt` - run all tests
+
+Runs specs in a tmux pane. Vim must be running in a tmux session for this to
+work. If you already have the tmux window split it will send the command to run
+the spec to that pane. Otherwise a new pane is created.
 
 ### ZoomWin (,z)
 
-Zoom the current window
+Zoom the current window if you have multiple splits.
 
-### coffee-script
-
-CoffeeScript support
-
-`:CoffeeCompile watch` show compiled js in split
-
-https://github.com/kchmck/vim-coffee-script
+Press `,z` again to toogle back to normal.
 
 ### ruby-block
 
@@ -101,7 +113,7 @@ Provides text-objects for Ruby blocks
 
 http://vimcasts.org/blog/2010/12/a-text-object-for-ruby-blocks/
 
-### fugitive         
+### fugitive
 
 Git integration
 
@@ -109,47 +121,41 @@ Git integration
 
 `:Gstatus` and press `-` to stage file
 
+`:Gcommit` to commit changes
+
 http://vimcasts.org/episodes/fugitive-vim---a-complement-to-command-line-git/
 
 `:help fugitive`
 
-### rvm              
-
-Add RVM integration
-
-### command-t (`,f`)            
+### Ctrlp (,f)
 
 Find files in your project with minimal keypresses
 
-For example `conadus` would find `controllers/admin/users`
+Search is fuzzy so `conadus` would find `controllers/admin/users`
 
 `,f path_or_filename`
 
-`,gf path_or_filename` - restrict to files in current directory
-
-`Ctrl + n` - next result
-
-`Ctrl + p` - previous result
-
-`Ctrl + c` - cancel
+`Esc` - cancel
 
 ### tcomment (`//`)
 
-Comment/Uncomment stuff out
+Comment/Uncomment line
 
 ### yankring
 
 Shows history of yanked (copied) text
 
-Pressing `ctrl + p` will also cycle through paste history
+After pasting (`p`) pressing `ctrl + p` will cycle through paste history
 
-### ack (`,a`)
+### ag (`,a`)
 
 Search project for text (aka find in files)
 
 `,a word`
 
 `,a "some words"`
+
+If you prefer you can also do `:Ack` to use ack.
 
 ### nerdtree (`,p`)             
 
@@ -163,7 +169,7 @@ Project file browser
 
 `?` Help
 
-I use nerdtree for creating or moving files, but find command-t quicker for
+I use nerdtree for creating or moving files, but find CtrlP (`,p`) quicker for
 opening files.
 
 ### surround (`ys`/`cs`/`ds`)
@@ -194,9 +200,11 @@ correct text object or motion.
 
 `cst<div>` - change surround tag to `<div>`
 
-### solarized 
+### colorschemes
 
-A colour scheme, both light and dark version
+Lots of colourschemes, I like Solarized and desert-warm-256
+
+`:set colorscheme desert-warm-256`
 
 `:set background=dark`
 
@@ -285,7 +293,8 @@ or run:
 
 *MacOS*
 
-    brew install ack
+    brew install ack (ag is a better ack)
+    brew install ag
     brew install ctags
 
 Note: MacOS comes with the BSD version of ctags which is not compatible.
@@ -293,6 +302,7 @@ Note: MacOS comes with the BSD version of ctags which is not compatible.
 *Ubuntu*
 
     sudo apt-get install exuberant-ctags
+    sudo apt-get install the-silver-searcher (ag is a better ack)
     sudo apt-get install ack-grep
     sudo ln -s /usr/bin/ack-grep /usr/local/bin/ack
 

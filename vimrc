@@ -1,5 +1,4 @@
 set nocompatible               " be iMproved
-set t_Co=256
 
 "  ---------------------------------------------------------------------------
 "  Plugins
@@ -14,6 +13,7 @@ silent! runtime bundles.vim
 filetype plugin indent on
 let mapleader = ","
 let g:mapleader = ","
+imap jj <ESC>
 set modelines=0
 set history=1000
 set nobackup
@@ -46,23 +46,10 @@ set number
 set relativenumber
 set undofile
 
-" Auto adjust window sizes when they become current
-" set winwidth=84
-" set winheight=5
-" set winminheight=5
-" set winheight=999
-
 set t_Co=256
-color desert-warm-256
-" set background=dark
-" " solarized options 
-" let g:solarized_termcolors = 256
-" let g:solarized_visibility = "high"
-" let g:solarized_contrast = "high"
-" colorscheme solarized
-" 
-" fix autocomplete menu colours
-" highlight Pmenu ctermbg=238 gui=bold
+" colorscheme desert-warm-256
+colorscheme grb256
+highlight clear SignColumn
 
 set splitbelow splitright
 
@@ -80,8 +67,6 @@ set nowrap
 set textwidth=79
 set formatoptions=n
 
-" check to make sure vim has been compiled with colorcolumn support
-" before enabling it
 if exists("+colorcolumn")
   set colorcolumn=80
 endif
@@ -138,9 +123,6 @@ map <c-space> ?
 nmap n nzz
 nmap N Nzz
 
-imap <C-h> <ESC>^
-imap <C-l> <ESC>$
-
 " Turn off arrow keys (this might not be a good idea for beginners, but it is
 " the best way to ween yourself of arrow keys on to hjkl)
 " http://yehudakatz.com/2010/07/29/everyone-who-tried-to-convince-me-to-use-vim-was-wrong/
@@ -156,19 +138,17 @@ inoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
 
-" Map ESC
-imap jj <ESC>
-
 " ACK
-set grepprg=ack
+" set grepprg=ack
 
 " ,a to Ack (search in files)
-nnoremap <leader>a :Ack 
+" nnoremap <leader>a :Ack 
+nnoremap <leader>a :Ag 
 
 " Ack settings: https://github.com/krisleech/vimfiles/wiki/Make-ack-ignore-files
 
 " Auto format
-map === mmgg=G`m^zz
+map === gg=G
 
 " Move between splits
 nnoremap <C-h> <C-w>h
@@ -179,8 +159,10 @@ nnoremap <C-l> <C-w>l
 " Switch between buffers
 noremap <tab> :bn<CR>
 noremap <S-tab> :bp<CR>
+
 " close buffer
 nmap <leader>d :bd<CR>
+
 " close all buffers
 nmap <leader>D :bufdo bd<CR>
 
@@ -192,27 +174,21 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
 map <leader>v :view %%
 
-" Ignore some binary, versioning and backup files when auto-completing
-set wildignore+=.svn,CVS,.git,*.swp,*.jpg,*.png,*.gif,*.pdf,*.bak,*.tar,*.zip,*.tgz
-" Set a lower priority for .old files
-set suffixes+=.old
+" File to ignore for autocomplete, also used by Ctrlp
+set wildignore+=*.swp,*.jpg,*.png,*.gif,*.pdf,*.bak,*.tar,*.zip,*.tgz
+set wildignore+=*/.hg/*,*/.svn/*,*/.git/*
+set wildignore+=*/vendor/cache/*,*/public/system/*,*/tmp/*,*/log/*,*/solr/data/*,*/.DS_Store
 
 " Saving and exit
 nmap <leader>q :wqa!<CR>
 nmap <leader>w :w!<CR>
 nmap <leader><Esc> :q!<CR>
 
-" EXTERNAL COPY / PASTE
-" Press F2 before and after pasting from an external Window, not required for
-" MacVim
-" set pastetoggle=<F2>
-" map <C-v> "+gP<CR>
-" vmap <C-c> "+y
-vmap <C-x> :!pbcopy<CR>  
-vmap <C-c> :w !pbcopy<CR><CR> 
+" CTAGS aka autocomplete
+" Includes all gems in RVM gemset, excludes Javascript and HTML
+"map <leader>rt :!ctags --sort=yes --extra=+f --languages=-javascript --exclude=.git --exclude=log --exclude=db --exclude=public --exclude=alfresco -R * `rvm gemdir`/gems/* `rvm gemdir`/bundler/gems/*<CR><C-M>
 
-" ctags
-map <leader>rt :!ctags --extra=+f --languages=-javascript --exclude=.git --exclude=log -R * `rvm gemdir`/gems/* `rvm gemdir`/bundler/gems/*<CR><C-M>
+map <leader>rt :call VimuxRunCommand("clear;ctags --sort=yes --extra=+f --languages=-javascript --exclude=.git --exclude=log --exclude=db --exclude=public --exclude=alfresco -R * `rvm gemdir`/gems/* `rvm gemdir`/bundler/gems/* &")<CR>
 
 "  ---------------------------------------------------------------------------
 "  Function Keys
@@ -222,10 +198,24 @@ map <leader>rt :!ctags --extra=+f --languages=-javascript --exclude=.git --exclu
 "  Plugins
 "  ---------------------------------------------------------------------------
 
-" Ctrlp
-let g:ctrlp_map = ',f'
+" neocomplcache
 
-" ZoomWin
+" if !exists('g:neocomplcache_omni_patterns')
+"   let g:neocomplcache_omni_patterns = {}
+" endif
+" let g:neocomplcache_enable_at_startup = 1
+" let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+
+" Ctrlp
+map <leader>b :CtrlPBuffer<CR>
+let g:ctrlp_map = ',f'
+let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_working_path_mode = 2
+let g:ctrlp_match_window_reversed = 0
+" :CtrlPTag
+let g:ctrlp_extensions = ['tag']
+
+" ZoomWin (toggle split to full screen)
 map <leader>z :ZoomWin<CR>
 
 " NERDTree
@@ -242,9 +232,6 @@ let NERDTreeDirArrows = 1
 " Use only current file to autocomplete from tags
 set complete=.,w,b,u,t,i
 
-" Buffer window (find file in open buffers)
-" nmap <silent> <leader>b :FufBuffer<CR>
-
 " AutoClose
 let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"', "'": "'", '#{': '}'} 
 let g:AutoCloseProtectedRegions = ["Character"] 
@@ -255,8 +242,6 @@ if filereadable(my_home . '.vim/bundle/vim-autocorrect/autocorrect.vim')
   source ~/.vim/bundle/vim-autocorrect/autocorrect.vim
 endif
 
-" let g:cssColorVimDoNotMessMyUpdatetime = 1
-
 " Easy commenting
 nnoremap // :TComment<CR>
 vnoremap // :TComment<CR>
@@ -264,16 +249,43 @@ vnoremap // :TComment<CR>
 " Supertab
 let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 
-" Syntastic
-" let g:syntastic_auto_loc_list=1
-" let g:syntastic_auto_jump=1
+"  ---------------------------------------------------------------------------
+"  Tumx/Rspec
+"  ---------------------------------------------------------------------------
+
+" default mappings ,t and ,T for running all specs in buffer and spec on
+" current line.
+
+let VimuxUseNearestPane = 1
+let VimuxHeight = "40"
+let VimuxOrientation = "v"
+
+if exists('$TMUX')
+
+  " Run all specs (writes buffer first)
+  map <leader>tt ,w:call VimuxRunCommand("clear && rspec spec")<CR>
+
+  " Close specs pane
+  map <leader>tx :call VimuxRunCommand("clear")<CR>:call CloseVimTmuxPanes()<CR>
+
+  " Clear specs pane
+  map <leader>tc :call VimuxRunCommand("clear")<CR>
+
+  " Run shell command
+  map <leader>rc :PromptVimTmuxCommand<CR>
+
+  " migrate the database
+  map <leader>rm :call VimuxRunCommand("clear && rake db:migrate")<CR>
+
+endif
+
 
 "  ---------------------------------------------------------------------------
 "  Ruby/Rails
 "  ---------------------------------------------------------------------------
 
-" Execute current buffer as ruby
-map <S-r> :w !ruby<CR>
+" Execute current buffer as ruby (Shift + r)
+" map <S-r> :w !ruby<CR>
 
 " Skip to Model, View or Controller
 map <Leader>m :Rmodel 

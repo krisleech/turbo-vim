@@ -1,7 +1,7 @@
 set nocompatible               " be iMproved
 
-if !isdirectory(expand("~/.vim/bundle/vundle/.git"))
-  !git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+if !isdirectory(expand("~/.vim/bundle/vundle/"))
+   clone gmarik/vundle ~/.vim/bundle/vundle
 endif
 
 filetype off                   " must be off before Vundle has run
@@ -19,58 +19,43 @@ Bundle 'ColorSchemeMenuMaker'
 Bundle 'desert-warm-256'
 
 " Files
-Bundle "git://github.com/mileszs/ack.vim.git"
-Bundle "git://github.com/scrooloose/nerdtree.git"
-Bundle "git://github.com/kien/ctrlp.vim.git"
+Bundle "mileszs/ack.vim"
+Bundle "scrooloose/nerdtree"
+Bundle "kien/ctrlp.vim"
 
 " Utility
-Bundle "git://github.com/tpope/vim-surround.git"
-Bundle "git://github.com/Townk/vim-autoclose.git"
-Bundle "tComment"
-Bundle "git://github.com/vim-scripts/ZoomWin.git"
-Bundle "git://github.com/ervandew/supertab.git"
-Bundle "git://github.com/gmarik/snipmate.vim.git"
-Bundle "git://github.com/airblade/vim-rooter.git"
+Bundle "tpope/vim-surround"
+Bundle "Townk/vim-autoclose"
+Bundle "tomtom/tcomment_vim"
+Bundle "vim-scripts/ZoomWin"
+Bundle "ervandew/supertab"
+Bundle "gmarik/snipmate.vim"
+Bundle "airblade/vim-rooter"
+Bundle "vim-scripts/YankRing.vim"
+Bundle "epmatsw/ag.vim.git"
 
 " Rails
-Bundle "git://github.com/tpope/vim-rails.git"
+Bundle "tpope/vim-rails"
+Bundle "tpope/vim-haml"
+Bundle "cakebaker/scss-syntax.vim"
+Bundle "kchmck/vim-coffee-script"
 
 " Ruby
-Bundle "git://github.com/tpope/vim-rvm.git"
-Bundle "git://github.com/tpope/vim-endwise.git"
-Bundle "git://github.com/kana/vim-textobj-user.git"
-Bundle "git://github.com/nelstrom/vim-textobj-rubyblock.git"
+Bundle "tpope/vim-rvm"
+Bundle "tpope/vim-endwise"
+Bundle "kana/vim-textobj-user"
+Bundle "nelstrom/vim-textobj-rubyblock"
 
 " Git
-Bundle "git://github.com/tpope/vim-fugitive"
+Bundle "tpope/vim-fugitive"
+Bundle "airblade/vim-gitgutter.git"
 
 " Tmux
-Bundle "git://github.com/jgdavey/tslime.vim.git"
-Bundle "git://github.com/jgdavey/vim-turbux.git"
+Bundle "benmills/vimux"
+Bundle "jgdavey/vim-turbux"
 
-" UI
-Bundle 'git://github.com/altercation/vim-colors-solarized.git'
-
-
-
-" Bundle "git://github.com/cakebaker/scss-syntax.vim.git"
-" Bundle "git://github.com/tpope/vim-haml.git"
-" Bundle "git://github.com/kchmck/vim-coffee-script.git"
-
-" Bundle "git://github.com/tpope/vim-bundler.git"
-
-
-" Bundle "git://github.com/sophacles/vim-bundle-sparkup.git"
-" Bundle "git://github.com/panozzaj/vim-autocorrect.git"
-" Bundle "git://github.com/sjl/gundo.vim.git"
-" Bundle "git://github.com/clones/vim-fuzzyfinder.git"
-" Bundle "git://github.com/godlygeek/tabular.git"
-" Bundle "git://github.com/vim-scripts/Gist.vim.git"
-" Bundle "git://github.com/vim-scripts/L9.git"
-" Bundle "jQuery"
-" Bundle "git://github.com/pangloss/vim-javascript.git"
-" Bundle "git://github.com/tpope/vim-markdown.git"
-" Bundle "git://github.com/greyblake/vim-preview.git"
+" Misc
+" Bundle 'yesmeck/tips.vim'
 
 filetype plugin indent on     " and turn it back on!
 
