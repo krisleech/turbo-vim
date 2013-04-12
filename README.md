@@ -157,6 +157,8 @@ Search project for text (aka find in files)
 
 `,a "some words"`
 
+`ag` is like `Ack` but faster.
+
 If you prefer you can also do `:Ack` to use ack.
 
 ### nerdtree (`,p`)             
