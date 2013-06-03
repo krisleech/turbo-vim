@@ -33,6 +33,7 @@ Bundle "gmarik/snipmate.vim"
 Bundle "airblade/vim-rooter"
 Bundle "vim-scripts/YankRing.vim"
 Bundle "epmatsw/ag.vim.git"
+Bundle "kshenoy/vim-signature"
 
 " Rails
 Bundle "tpope/vim-rails"
