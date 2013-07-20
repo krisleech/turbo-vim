@@ -263,7 +263,7 @@ let VimuxOrientation = "v"
 if exists('$TMUX')
 
   " Run all specs (writes buffer first)
-  map <leader>tt ,w:call VimuxRunCommand("clear && rspec spec")<CR>
+  map <leader>tt ,w:call VimuxRunCommand("clear; rspec spec")<CR>
 
   " Close specs pane
   map <leader>tx :call VimuxRunCommand("clear")<CR>:call CloseVimTmuxPanes()<CR>
@@ -275,7 +275,7 @@ if exists('$TMUX')
   map <leader>rc :PromptVimTmuxCommand<CR>
 
   " migrate the database
-  map <leader>rm :call VimuxRunCommand("clear && rake db:migrate")<CR>
+  map <leader>rm :call VimuxRunCommand("clear; rake db:migrate")<CR>
 
 endif
 
