@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Turbo-vim by krisleech</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Turbo-vim</h1>
+          <h2>Vim with support for Tmux, Ruby/Rails, Rspec, Git and RVM.</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/krisleech/turbo-vim/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/krisleech/turbo-vim/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/krisleech/turbo-vim" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h1>
+<a name="turbo-vim-for-rubyrails" class="anchor" href="#turbo-vim-for-rubyrails"><span class="octicon octicon-link"></span></a>Turbo VIM for Ruby/Rails</h1>
+
+<pre><code>  _              _                   _
+ | |_ _   _ _ __| |__   ___   __   _(_)_ __ ___
+ | __| | | | '__| '_ \ / _ \  \ \ / / | '_ ` _ \
+ | |_| |_| | |  | |_) | (_) |  \ V /| | | | | | |
+  \__|\__,_|_|  |_.__/ \___/    \_/ |_|_| |_| |_|
+</code></pre>
+
+<p>Vim configuration with support for Rspec, Rails 3, RVM and Git.</p>
+
+<p>Vim must be run from within a tmux session to run specs asynchronously.</p>
+
+<h2>
+<a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements</h2>
+
+<p>Vim 7.3 or better
+Tested on MacOS and Linux</p>
+
+<p>Introduction to Vim: <a href="http://blog.interlinked.org/tutorials/vim_tutorial.html">http://blog.interlinked.org/tutorials/vim_tutorial.html</a></p>
+
+<h2>
+<a name="quick-install" class="anchor" href="#quick-install"><span class="octicon octicon-link"></span></a>Quick Install</h2>
+
+<pre><code>curl https://raw.github.com/krisleech/turbo-vim/master/bootstrap.sh -o - | sh
+</code></pre>
+
+<h2>
+<a name="basic-mappings" class="anchor" href="#basic-mappings"><span class="octicon octicon-link"></span></a>Basic Mappings</h2>
+
+<p>The leader is mapped to <code>,</code></p>
+
+<h3>
+<a name="in-normal-mode-esc-or-jj" class="anchor" href="#in-normal-mode-esc-or-jj"><span class="octicon octicon-link"></span></a>In Normal mode (<code>Esc</code> or <code>jj</code>)</h3>
+
+<p><code>,p</code>     - File browser (NerdTree)</p>
+
+<p><code>,f</code>     - Find in Files (Ctrlp)</p>
+
+<p><code>Space</code>  - Search in buffer</p>
+
+<p><code>,a</code>     - Search in files</p>
+
+<p><code>,d</code>     - close buffer</p>
+
+<p><code>,D</code>     - close all buffers</p>
+
+<p><code>,Space</code> - Remove search highlighting</p>
+
+<p><code>//</code>     - Toggle comments (T-Comment)</p>
+
+<p><code>Tab</code>    - Next buffer</p>
+
+<p><code>Shift + Tab</code> - Previous buffer</p>
+
+<p><code>,,</code>     - Toggle between last two buffers</p>
+
+<p><code>,m</code>     - Jump to model</p>
+
+<p><code>,v</code>     - Jump to view</p>
+
+<p><code>,c</code>     - Jump to controller</p>
+
+<p><code>,rt</code>    - Generate tags for project and gems</p>
+
+<h3>
+<a name="in-insert-mode-i" class="anchor" href="#in-insert-mode-i"><span class="octicon octicon-link"></span></a>In Insert mode (<code>i</code>)</h3>
+
+<p><code>jj</code> - Back to normal mode</p>
+
+<p><code>&lt;tab&gt;</code> - auto complete or expand snippet</p>
+
+<p>See <code>.vimrc</code> for more.</p>
+
+<h2>
+<a name="plugins" class="anchor" href="#plugins"><span class="octicon octicon-link"></span></a>Plugins</h2>
+
+<h3>
+<a name="rails" class="anchor" href="#rails"><span class="octicon octicon-link"></span></a>rails</h3>
+
+<p><em>Lots</em> of stuff - get to know this plugin!</p>
+
+<p><code>:A</code> - jump to/from test</p>
+
+<p><code>:Rmodel</code> - jump to model</p>
+
+<p><code>:Rview</code> - jump to view</p>
+
+<p><code>:help rails</code></p>
+
+<h3>
+<a name="turbux--vimux-t--t--tt" class="anchor" href="#turbux--vimux-t--t--tt"><span class="octicon octicon-link"></span></a>Turbux + Vimux (,t / ,T / ,tt)</h3>
+
+<p><code>,t</code> - run all tests for current buffer</p>
+
+<p><code>,T</code> - run test for current line</p>
+
+<p><code>,tt</code> - run all tests</p>
+
+<p>Runs specs in a tmux pane. Vim must be running in a tmux session for this to
+work. If you already have the tmux window split it will send the command to run
+the spec to that pane. Otherwise a new pane is created.</p>
+
+<h3>
+<a name="zoomwin-z" class="anchor" href="#zoomwin-z"><span class="octicon octicon-link"></span></a>ZoomWin (,z)</h3>
+
+<p>Zoom the current window if you have multiple splits.</p>
+
+<p>Press <code>,z</code> again to toogle back to normal.</p>
+
+<h3>
+<a name="ruby-block" class="anchor" href="#ruby-block"><span class="octicon octicon-link"></span></a>ruby-block</h3>
+
+<p>Provides text-objects for Ruby blocks</p>
+
+<p><code>var</code> (visual around Ruby)</p>
+
+<p><code>vir</code> (visual inner Ruby)</p>
+
+<p><code>ar</code> / <code>ir</code> (expand/contract selection)</p>
+
+<p><code>cir</code> (change inner Ruby)</p>
+
+<p><code>dar</code> (delete around Ruby)</p>
+
+<p><a href="http://vimcasts.org/blog/2010/12/a-text-object-for-ruby-blocks/">http://vimcasts.org/blog/2010/12/a-text-object-for-ruby-blocks/</a></p>
+
+<h3>
+<a name="fugitive" class="anchor" href="#fugitive"><span class="octicon octicon-link"></span></a>fugitive</h3>
+
+<p>Git integration</p>
+
+<p><em>Lots</em> of stuff</p>
+
+<p><code>:Gstatus</code> and press <code>-</code> to stage file</p>
+
+<p><code>:Gcommit</code> to commit changes</p>
+
+<p><a href="http://vimcasts.org/episodes/fugitive-vim---a-complement-to-command-line-git/">http://vimcasts.org/episodes/fugitive-vim---a-complement-to-command-line-git/</a></p>
+
+<p><code>:help fugitive</code></p>
+
+<h3>
+<a name="ctrlp-f" class="anchor" href="#ctrlp-f"><span class="octicon octicon-link"></span></a>Ctrlp (,f)</h3>
+
+<p>Find files in your project with minimal keypresses</p>
+
+<p>Search is fuzzy so <code>conadus</code> would find <code>controllers/admin/users</code></p>
+
+<p><code>,f path_or_filename</code></p>
+
+<p><code>Esc</code> - cancel</p>
+
+<h3>
+<a name="tcomment-" class="anchor" href="#tcomment-"><span class="octicon octicon-link"></span></a>tcomment (<code>//</code>)</h3>
+
+<p>Comment/Uncomment line</p>
+
+<h3>
+<a name="yankring" class="anchor" href="#yankring"><span class="octicon octicon-link"></span></a>yankring</h3>
+
+<p>Shows history of yanked (copied) text</p>
+
+<p>After pasting (<code>p</code>) pressing <code>ctrl + p</code> will cycle through paste history</p>
+
+<h3>
+<a name="ag-a" class="anchor" href="#ag-a"><span class="octicon octicon-link"></span></a>ag (<code>,a</code>)</h3>
+
+<p>Search project for text (aka find in files)</p>
+
+<p><code>,a word</code></p>
+
+<p><code>,a "some words"</code></p>
+
+<p><code>ag</code> is like <code>Ack</code> but faster.</p>
+
+<p>If you prefer you can also do <code>:Ack</code> to use ack.</p>
+
+<h3>
+<a name="nerdtree-p" class="anchor" href="#nerdtree-p"><span class="octicon octicon-link"></span></a>nerdtree (<code>,p</code>)</h3>
+
+<p>Project file browser</p>
+
+<p><code>,p</code> opens file browser</p>
+
+<p><code>o</code> / <code>x</code> open and close files/folders</p>
+
+<p><code>m</code> menu to move/delete/copy files/folders</p>
+
+<p><code>?</code> Help</p>
+
+<p>I use nerdtree for creating or moving files, but find CtrlP (<code>,p</code>) quicker for
+opening files.</p>
+
+<h3>
+<a name="surround-yscsds" class="anchor" href="#surround-yscsds"><span class="octicon octicon-link"></span></a>surround (<code>ys</code>/<code>cs</code>/<code>ds</code>)</h3>
+
+<p>Allows adding/removing/changing of surroundings</p>
+
+<p>I would highly recommend getting to know this plugin, it is very useful.
+Especially when you grok text objects.</p>
+
+<p><em>Characters</em></p>
+
+<p><code>ysiw)</code>    - surround inner word with <code>()</code></p>
+
+<p><code>ysiw(</code>    - surround inner word with <code>(  )</code></p>
+
+<p>In the above example <code>iw</code> can be replaced with any text object or motion.</p>
+
+<p>If you find yourself manually adding surroundings, stop and work out the
+correct text object or motion.</p>
+
+<p><code>cs"'</code>     - change surrounding from <code>"</code> to <code>'</code></p>
+
+<p><code>ds</code>       - delete surrounding</p>
+
+<p><em>HTML tags</em></p>
+
+<p><code>yss&lt;p&gt;</code>  - surround line in <code>&lt;p&gt;</code> tags</p>
+
+<p><code>cst&lt;div&gt;</code> - change surround tag to <code>&lt;div&gt;</code></p>
+
+<h3>
+<a name="colorschemes" class="anchor" href="#colorschemes"><span class="octicon octicon-link"></span></a>colorschemes</h3>
+
+<p>Lots of colourschemes, I like Solarized and desert-warm-256</p>
+
+<p><code>:set colorscheme desert-warm-256</code></p>
+
+<p><code>:set background=dark</code></p>
+
+<p><code>:set background=light</code></p>
+
+<h3>
+<a name="fuzzyfinder-b" class="anchor" href="#fuzzyfinder-b"><span class="octicon octicon-link"></span></a>fuzzyfinder (<code>,b</code>)</h3>
+
+<p>Find open buffer by path/filename</p>
+
+<h3>
+<a name="vundle" class="anchor" href="#vundle"><span class="octicon octicon-link"></span></a>vundle</h3>
+
+<p>Plugin manager and part of the reason why my vimfiles as so compact</p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>INSTALLATION</h2>
+
+<p>Note: If you are using RVM make sure you use system ruby before installation.</p>
+
+<pre><code>rvm use system
+</code></pre>
+
+<p>Note: If you already have Vim installed ensure it has support for Ruby:</p>
+
+<pre><code>vim --version | grep ruby
+</code></pre>
+
+<p>You should see <code>+ruby,</code> if you see <code>-ruby</code> you need to reinstall Vim with Ruby support</p>
+
+<h3>
+<a name="install-vim-if-not-already-installed" class="anchor" href="#install-vim-if-not-already-installed"><span class="octicon octicon-link"></span></a>Install Vim (if not already installed)</h3>
+
+<h4>
+<a name="macos-macvim--vim" class="anchor" href="#macos-macvim--vim"><span class="octicon octicon-link"></span></a>MacOS: MacVim / Vim</h4>
+
+<pre><code>brew install macvim --override-system-vim --enable-clipboard
+</code></pre>
+
+<p>Add <code>/usr/local/bin</code> before <code>/usr/bin</code> in your <code>$PATH</code> so you use the version of
+vim installed by Homebrew, not the one that comes with MacOS.</p>
+
+<p>By installing Vim in this way MacVim and regular Vim are exactly the same.</p>
+
+<h4>
+<a name="ubuntu-gvim--vim" class="anchor" href="#ubuntu-gvim--vim"><span class="octicon octicon-link"></span></a>Ubuntu: gVim / Vim</h4>
+
+<p><em>Server</em></p>
+
+<pre><code>apt-get install vim-nox
+</code></pre>
+
+<p><em>Desktop</em></p>
+
+<pre><code>apt-get install vim-gnome
+</code></pre>
+
+<h4>
+<a name="gnulinux-from-source" class="anchor" href="#gnulinux-from-source"><span class="octicon octicon-link"></span></a>GNU/Linux from source</h4>
+
+<p>If you have an old GNU/Linux distro which does not have Vim 7.3 or better in its repos then install from source.</p>
+
+<p>The configure options below leave out any GUI related features as I have only compiled Vim on a server.</p>
+
+<p>Vim source is in a hg (Mercurial) repository so you need to install the hg
+client first, e.g.  <code>sudo apt-get install mercurial</code>.</p>
+
+<pre><code>hg clone https://vim.googlecode.com/hg/ vim
+cd vim/vim73
+./configure
+./configure --with-features=huge --enable-cscope --enable-pythoninterp --enable-rubyinterp --enable-perlinterp --enable-multibyte
+make
+sudo make install
+</code></pre>
+
+<p>This installs Vim to <code>/usr/local/bin,</code> check this is in your <code>$PATH</code> before <code>/usr/bin</code> which may contain an older system version of Vim.</p>
+
+<p>If you get an error <code>no terminal library found</code> install <code>libncurses5-dev</code>.</p>
+
+<h3>
+<a name="install-these-vimfiles" class="anchor" href="#install-these-vimfiles"><span class="octicon octicon-link"></span></a>Install these vimfiles</h3>
+
+<p>Note: You will already have a <code>~/.vim</code> folder, either delete or move it.</p>
+
+<pre><code>mv ~/.vim ~/.vim.old
+git clone https://github.com/krisleech/vimfiles ~/.vim
+cd ~/.vim
+rake install
+</code></pre>
+
+<p>or run:</p>
+
+<pre><code>curl https://raw.github.com/krisleech/vimfiles/master/bootstrap.sh -o - | sh
+</code></pre>
+
+<h4>
+<a name="to-update-to-the-latest-vimfiles" class="anchor" href="#to-update-to-the-latest-vimfiles"><span class="octicon octicon-link"></span></a>To update to the latest vimfiles</h4>
+
+<pre><code>cd ~/.vim
+rake update
+</code></pre>
+
+<h4>
+<a name="install-dependacies" class="anchor" href="#install-dependacies"><span class="octicon octicon-link"></span></a>Install Dependacies</h4>
+
+<p><em>MacOS</em></p>
+
+<pre><code>brew install ack (ag is a better ack)
+brew install ag
+brew install ctags
+</code></pre>
+
+<p>Note: MacOS comes with the BSD version of ctags which is not compatible.</p>
+
+<p><em>Ubuntu</em></p>
+
+<pre><code>sudo apt-get install exuberant-ctags
+sudo apt-get install the-silver-searcher (ag is a better ack)
+sudo apt-get install ack-grep
+sudo ln -s /usr/bin/ack-grep /usr/local/bin/ack
+</code></pre>
+
+<h2>
+<a name="helpful-stuff" class="anchor" href="#helpful-stuff"><span class="octicon octicon-link"></span></a>Helpful Stuff</h2>
+
+<ul>
+<li><a href="http://github.com/krisleech/vimfiles/wiki">http://github.com/krisleech/vimfiles/wiki</a></li>
+<li><a href="http://walking-without-crutches.heroku.com/image/images/vi-vim-cheat-sheet.png">http://walking-without-crutches.heroku.com/image/images/vi-vim-cheat-sheet.png</a></li>
+<li><a href="http://yehudakatz.com/2010/07/29/everyone-who-tried-to-convince-me-to-use-vim-was-wrong/">http://yehudakatz.com/2010/07/29/everyone-who-tried-to-convince-me-to-use-vim-was-wrong/</a></li>
+<li><a href="http://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim/1220118#1220118">http://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim/1220118#1220118</a></li>
+<li><a href="http://stevelosh.com/blog/2010/09/coming-home-to-vim/#important-vimrc-lines">http://stevelosh.com/blog/2010/09/coming-home-to-vim/#important-vimrc-lines</a></li>
+<li><code>:help key-notation</code></li>
+<li><a href="http://vimcasts.org/">http://vimcasts.org/</a></li>
+</ul><h2>
+<a name="acknowledgments" class="anchor" href="#acknowledgments"><span class="octicon octicon-link"></span></a>Acknowledgments</h2>
+
+<ul>
+<li>Tim Pope (of course) <a href="http://tpo.pe/">http://tpo.pe/</a>
+</li>
+<li><a href="https://github.com/carlhuda/janus">https://github.com/carlhuda/janus</a></li>
+<li><a href="https://github.com/rson/vimfiles/blob/master/plugins.vim">https://github.com/rson/vimfiles/blob/master/plugins.vim</a></li>
+<li><a href="https://github.com/codegram/vimfiles">https://github.com/codegram/vimfiles</a></li>
+<li><a href="https://www.destroyallsoftware.com/file-navigation-in-vim.html">https://www.destroyallsoftware.com/file-navigation-in-vim.html</a></li>
+<li><a href="https://github.com/alexreisner/dotfiles/blob/master/.vimrc">https://github.com/alexreisner/dotfiles/blob/master/.vimrc</a></li>
+<li><a href="http://items.sjbach.com/319/configuring-vim-right">http://items.sjbach.com/319/configuring-vim-right</a></li>
+<li><a href="https://github.com/sickill/dotfiles/blob/master/.vimrc">https://github.com/sickill/dotfiles/blob/master/.vimrc</a></li>
+<li>#vim on freenode
+
+<ul>
+<li>woldrich</li>
+<li>spiiph</li>
+</ul>
+</li>
+</ul>
+        </section>
+
+        <footer>
+          Turbo-vim is maintained by <a href="https://github.com/krisleech">krisleech</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
