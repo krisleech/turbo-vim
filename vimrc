@@ -249,6 +249,10 @@ vnoremap // :TComment<CR>
 " Supertab
 let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 
+" YankRing
+let g:yankring_history_dir = '/tmp'
+
+
 "  ---------------------------------------------------------------------------
 "  Tumx/Rspec
 "  ---------------------------------------------------------------------------
