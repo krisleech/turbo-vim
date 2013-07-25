@@ -8,20 +8,27 @@
   \__|\__,_|_|  |_.__/ \___/    \_/ |_|_| |_| |_|
 ```
 
-Vim configuration with support for Rspec, Rails 3, RVM and Git.
+Vim configuration with support for Ruby, Rspec, Rails, RVM and Git.
 
-Vim must be run from within a tmux session to run specs asynchronously.
+The aim is to support a terminal based workflow within a Tmux session allowing
+specs to be run asynchronously.
 
 ## Requirements
 
 Vim 7.3 or better
-Tested on MacOS and Linux
+Tmux
+Tested on MacOS and Linux with Bash, Zsh and Fish shells.
 
 Introduction to Vim: http://blog.interlinked.org/tutorials/vim_tutorial.html
 
 ## Quick Install
 
+This will install the vim configuration only:
+
     curl https://raw.github.com/krisleech/turbo-vim/master/bootstrap.sh -o - | sh
+
+See later for full instructions for installing Tmux and Vim, as well as manual
+installation of the vim configuration.
 
 ## Basic Mappings
 
@@ -69,7 +76,7 @@ See `.vimrc` for more.
 
 ## Plugins
 
-### rails
+### Rails
 
 *Lots* of stuff - get to know this plugin!
 
@@ -214,6 +221,9 @@ Lots of colourschemes, I like Solarized and desert-warm-256
 
 `:set background=light`
 
+If you have problems with colors not displaying correctly ensure you start tmux
+in 256 colour mode: `tmux -2`.
+
 ### fuzzyfinder (`,b`)
 
 Find open buffer by path/filename
@@ -234,26 +244,24 @@ Note: If you already have Vim installed ensure it has support for Ruby:
 
 You should see `+ruby,` if you see `-ruby` you need to reinstall Vim with Ruby support
 
-### Install Vim (if not already installed)
+### Install Vim and Tmux (if not already installed)
 
-#### MacOS: MacVim / Vim 
+As well as installing Tmux you can grab a good tmux configration from here:
+https://github.com/krisleech/dotfiles/blob/master/common/tmux.conf
 
-    brew install macvim --override-system-vim --enable-clipboard
+#### MacOS
+
+    brew install vim --override-system-vim --enable-clipboard
 
 Add `/usr/local/bin` before `/usr/bin` in your `$PATH` so you use the version of
 vim installed by Homebrew, not the one that comes with MacOS.
 
-By installing Vim in this way MacVim and regular Vim are exactly the same.
+    brew install tmux
 
-#### Ubuntu: gVim / Vim
-
-*Server*
+#### Debian (Ubuntu, CrunchBang)
 
     apt-get install vim-nox
-
-*Desktop*
-
-    apt-get install vim-gnome
+    apt-get install tmux
 
 #### GNU/Linux from source
 
@@ -286,7 +294,7 @@ Note: You will already have a `~/.vim` folder, either delete or move it.
 
 or run:
 
-    curl https://raw.github.com/krisleech/vimfiles/master/bootstrap.sh -o - | sh
+    curl https://raw.github.com/krisleech/turbo-vim/master/bootstrap.sh -o - | sh
 
 #### To update to the latest vimfiles
 
@@ -303,7 +311,7 @@ or run:
 
 Note: MacOS comes with the BSD version of ctags which is not compatible.
 
-*Ubuntu*
+*Debian*
 
     sudo apt-get install exuberant-ctags
     sudo apt-get install the-silver-searcher (ag is a better ack)
