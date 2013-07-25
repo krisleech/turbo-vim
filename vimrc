@@ -47,8 +47,7 @@ set relativenumber
 set undofile
 
 set t_Co=256
-" colorscheme desert-warm-256
-colorscheme grb256
+colorscheme desert-warm-256
 highlight clear SignColumn
 
 set splitbelow splitright
