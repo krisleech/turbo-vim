@@ -336,8 +336,8 @@ endif
 "  Directories
 "  ---------------------------------------------------------------------------
 
-set backupdir=~/tmp,/tmp
-set undodir=~/.vim/.tmp,~/tmp,~/.tmp,/tmp
+set backupdir=~/tmp/vim,~/.tmp,~/tmp,/tmp
+set undodir=~/tmp/vim,~/.tmp,~/tmp,/tmp
 
 " Ctags path (brew install ctags)
 let Tlist_Ctags_Cmd = 'ctags'
