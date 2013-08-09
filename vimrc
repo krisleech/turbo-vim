@@ -86,7 +86,9 @@ set statusline+=\ %{fugitive#statusline()}
 " encoding
 set statusline+=\ [%{strlen(&fenc)?&fenc:&enc}]
 " rvm
-set statusline+=\ %{rvm#statusline()}
+if exists("$rvm_path")
+  set statusline+=\ %{rvm#statusline()}
+end
 " line x of y
 set statusline+=\ [line\ %l\/%L]
 

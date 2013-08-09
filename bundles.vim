@@ -42,7 +42,9 @@ Bundle "cakebaker/scss-syntax.vim"
 Bundle "kchmck/vim-coffee-script"
 
 " Ruby
-Bundle "tpope/vim-rvm"
+if exists("$rvm_path")
+  Bundle "tpope/vim-rvm"
+end
 Bundle "tpope/vim-endwise"
 Bundle "kana/vim-textobj-user"
 Bundle "nelstrom/vim-textobj-rubyblock"
