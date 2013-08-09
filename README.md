@@ -334,6 +334,7 @@ Note: MacOS comes with the BSD version of ctags which is not compatible.
 - https://github.com/codegram/vimfiles
 - https://www.destroyallsoftware.com/file-navigation-in-vim.html
 - https://github.com/alexreisner/dotfiles/blob/master/.vimrc
+- https://github.com/docwhat/homedir-vim/blob/master/vimrc/.vimrc
 - http://items.sjbach.com/319/configuring-vim-right
 - https://github.com/sickill/dotfiles/blob/master/.vimrc
 - #vim on freenode
