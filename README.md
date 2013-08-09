@@ -158,15 +158,13 @@ After pasting (`p`) pressing `ctrl + p` will cycle through paste history
 
 ### ag (`,a`)
 
-Search project for text (aka find in files)
+Search project for text (find in files)
 
 `,a word`
 
 `,a "some words"`
 
-`ag` is like `Ack` but faster.
-
-If you prefer you can also do `:Ack` to use ack.
+It uses `ag` if installed, otherwise `ack`.
 
 ### nerdtree (`,p`)             
 

@@ -32,7 +32,13 @@ Bundle "ervandew/supertab"
 Bundle "gmarik/snipmate.vim"
 Bundle "airblade/vim-rooter"
 Bundle "vim-scripts/YankRing.vim"
-Bundle "epmatsw/ag.vim.git"
+
+if executable('ag')
+  Bundle "epmatsw/ag.vim.git"
+elseif executable('ack')
+  Bundle 'mileszs/ack.vim'
+endif
+
 Bundle "kshenoy/vim-signature"
 
 " Rails

@@ -139,12 +139,14 @@ inoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
 
-" ACK
-" set grepprg=ack
+" To search in files (,a) we can use ack or ag
 
-" ,a to Ack (search in files)
-" nnoremap <leader>a :Ack 
-nnoremap <leader>a :Ag 
+if executable('ag')
+  nnoremap <leader>a :Ag 
+elseif executable('ack')
+  nnoremap <leader>a :Ack 
+  let g:ackprg="ack -H --nocolor --nogroup --column"
+endif
 
 " Ack settings: https://github.com/krisleech/vimfiles/wiki/Make-ack-ignore-files
 
