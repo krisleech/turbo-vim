@@ -21,6 +21,7 @@ set nowritebackup
 set noswapfile
 syntax enable
 set autoread
+set undofile
 
 "  ---------------------------------------------------------------------------
 "  UI
@@ -44,7 +45,6 @@ set backspace=indent,eol,start
 set laststatus=2
 set number
 set relativenumber
-set undofile
 
 set t_Co=256
 colorscheme desert-warm-256
@@ -338,8 +338,9 @@ endif
 "  Directories
 "  ---------------------------------------------------------------------------
 
-set backupdir=~/tmp/vim,~/.tmp,~/tmp,/tmp
-set undodir=~/tmp/vim,~/.tmp,~/tmp,/tmp
+set directory=./.vim-swap,~/tmp/vim,~/.tmp,~/tmp,/tmp
+set backupdir=./.vim-backup,~/tmp/vim,~/.tmp,~/tmp,/tmp
+set undodir=./.vim-undo,~/tmp/vim,~/.tmp,~/tmp,/tmp
 
 " Ctags path
 let Tlist_Ctags_Cmd = 'ctags'
