@@ -339,7 +339,7 @@ endif
 set backupdir=~/tmp/vim,~/.tmp,~/tmp,/tmp
 set undodir=~/tmp/vim,~/.tmp,~/tmp,/tmp
 
-" Ctags path (brew install ctags)
+" Ctags path
 let Tlist_Ctags_Cmd = 'ctags'
 
 " Make Vim use RVM correctly when using Zsh
