@@ -45,6 +45,7 @@ set backspace=indent,eol,start
 set laststatus=2
 set number
 set relativenumber
+set previewheight=20
 
 set t_Co=256
 colorscheme desert-warm-256
@@ -255,6 +256,10 @@ let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 " YankRing
 let g:yankring_history_dir = '/tmp'
 
+" Fugitive
+
+nmap <leader>gs :Gstatus<CR>
+nmap <leader>gc :Gcommit<CR>
 
 "  ---------------------------------------------------------------------------
 "  Tumx/Rspec
