@@ -259,7 +259,7 @@ let g:yankring_history_dir = '/tmp'
 " Fugitive
 
 nmap <leader>gs :Gstatus<CR>
-nmap <leader>gc :Gcommit<CR>
+nmap <leader>gc :Gcommit<CR>i
 
 "  ---------------------------------------------------------------------------
 "  Tumx/Rspec
