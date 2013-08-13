@@ -368,6 +368,9 @@ if filereadable(my_home . '.vimrc.local')
   source ~/.vimrc.local
 endif
 
+set exrc            " enable per-directory .vimrc files
+set secure          " disable unsafe commands in local .vimrc files
+
 "  ---------------------------------------------------------------------------
 "  Misc
 "  ---------------------------------------------------------------------------
