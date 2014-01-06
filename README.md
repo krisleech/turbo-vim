@@ -222,6 +222,10 @@ Lots of colourschemes, I like Solarized and desert-warm-256
 If you have problems with colors not displaying correctly ensure you start tmux
 in 256 colour mode: `tmux -2`.
 
+### Indent Guides (`,ig`)
+
+Show indent levels by way of vertical lines.
+
 ### fuzzyfinder (`,b`)
 
 Find open buffer by path/filename

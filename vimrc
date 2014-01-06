@@ -48,6 +48,7 @@ set relativenumber
 set previewheight=20
 
 set t_Co=256
+set background=dark
 colorscheme desert-warm-256
 highlight clear SignColumn
 

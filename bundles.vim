@@ -32,6 +32,7 @@ Bundle "ervandew/supertab"
 Bundle "gmarik/snipmate.vim"
 Bundle "airblade/vim-rooter"
 Bundle "vim-scripts/YankRing.vim"
+Bundle "nathanaelkane/vim-indent-guides"
 
 if executable('ag')
   Bundle "epmatsw/ag.vim.git"
