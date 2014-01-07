@@ -281,6 +281,8 @@ let VimuxOrientation = "v"
 
 if exists('$TMUX')
 
+  let g:turbux_command_rspec  = 'bundle exec rspec'
+
   " Run all specs (writes buffer first)
   map <leader>tt ,w:call VimuxRunCommand("clear; bundle exec rspec spec")<CR>
 
