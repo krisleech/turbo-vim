@@ -220,11 +220,11 @@ map <leader>rt :call VimuxRunCommand("clear;ctags --sort=yes --extra=+f --langua
 " Ctrlp
 map <leader>b :CtrlPBuffer<CR>
 let g:ctrlp_map = ',f'
-let g:ctrlp_cmd = 'CtrlPMixed'
-let g:ctrlp_working_path_mode = 2
+let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_match_window_reversed = 0
-" :CtrlPTag
-let g:ctrlp_extensions = ['tag']
+let g:ctrlp_use_caching = 1
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_cache_dir = '/tmp/ctrlp'
 
 " ZoomWin (toggle split to full screen)
 map <leader>z :ZoomWin<CR>
