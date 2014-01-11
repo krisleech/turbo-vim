@@ -146,13 +146,15 @@ http://vimcasts.org/episodes/fugitive-vim---a-complement-to-command-line-git/
 
 `:help fugitive`
 
-### Ctrlp (,f)
+### Ctrlp (`,f` / `,b`)
 
-Find files in your project with minimal keypresses
+Find files in your project with minimal keypresses.
 
 Search is fuzzy so `conadus` would find `controllers/admin/users`
 
-`,f path_or_filename`
+`,f path_or_filename` (search files)
+
+`,b filename` (search buffers)
 
 `Esc` - cancel
 
@@ -235,10 +237,6 @@ in 256 colour mode: `tmux -2`.
 ### Indent Guides (`,ig`)
 
 Show indent levels by way of vertical lines.
-
-### fuzzyfinder (`,b`)
-
-Find open buffer by path/filename
 
 ### vundle
 
