@@ -88,6 +88,16 @@ See `.vimrc` for more.
 
 `:help rails`
 
+### vim-ruby-doc
+
+Open documentation in a browser for the word under the cursor:
+
+`RB` for Ruby
+
+`RS` for RSpec
+
+`RR` for Rails
+
 ### Turbux + Vimux (,t / ,T / ,tt)
 
 `,t` - run all tests for current buffer

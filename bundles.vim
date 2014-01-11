@@ -55,6 +55,7 @@ end
 Bundle "tpope/vim-endwise"
 Bundle "kana/vim-textobj-user"
 Bundle "nelstrom/vim-textobj-rubyblock"
+Bundle "lucapette/vim-ruby-doc"
 
 " Git
 Bundle "tpope/vim-fugitive"

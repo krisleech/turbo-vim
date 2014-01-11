@@ -305,6 +305,10 @@ endif
 "  Ruby/Rails
 "  ---------------------------------------------------------------------------
 
+" vim-ruby-doc
+
+let g:ruby_doc_command='open' " MacOS
+
 " Execute current buffer as ruby (Shift + r)
 " map <S-r> :w !ruby<CR>
 
