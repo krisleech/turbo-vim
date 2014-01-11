@@ -138,9 +138,9 @@ Git integration
 
 *Lots* of stuff
 
-`gs` and press `-` to stage file under cursor
+`,gs` and press `-` to stage file under cursor
 
-`gc` to commit changes, you will be prompted for a message
+`,gc` to commit changes, you will be prompted for a message
 
 http://vimcasts.org/episodes/fugitive-vim---a-complement-to-command-line-git/
 
