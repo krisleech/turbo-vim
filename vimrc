@@ -150,9 +150,9 @@ nnoremap k gk
 " To search in files (,a) we can use ack or ag
 
 if executable('ag')
-  nnoremap <leader>a :Ag 
+  nnoremap <leader>a :Ag! 
 elseif executable('ack')
-  nnoremap <leader>a :Ack 
+  nnoremap <leader>a :Ack! 
   let g:ackprg="ack -H --nocolor --nogroup --column"
 endif
 
