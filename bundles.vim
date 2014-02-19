@@ -47,6 +47,7 @@ Bundle "tpope/vim-rails"
 Bundle "tpope/vim-haml"
 Bundle "cakebaker/scss-syntax.vim"
 Bundle "kchmck/vim-coffee-script"
+Bundle "tpope/vim-cucumber"
 
 " Ruby
 if exists("$rvm_path")
