@@ -51,6 +51,7 @@ set t_Co=256
 set background=dark
 colorscheme desert-warm-256
 highlight clear SignColumn
+highlight CursorLine term=NONE cterm=NONE ctermbg=236
 
 set splitbelow splitright
 
@@ -70,6 +71,7 @@ set formatoptions=n
 
 if exists("+colorcolumn")
   set colorcolumn=80
+  highlight ColorColumn ctermbg=236
 endif
 
 " display tabs and trailing spaces
