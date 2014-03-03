@@ -323,25 +323,6 @@ map <Leader>c :Rcontroller
 au BufRead,BufNewFile Gemfile,Rakefile,Thorfile,config.ru,Vagrantfile,Guardfile,Capfile set ft=ruby
 
 "  ---------------------------------------------------------------------------
-"  CoffeeScript
-"  ---------------------------------------------------------------------------
-
-let coffee_compile_vert = 1
-au BufNewFile,BufReadPost *.coffee setl foldmethod=indent
-
-"  ---------------------------------------------------------------------------
-"  SASS / SCSS
-"  ---------------------------------------------------------------------------
-
-au BufNewFile,BufReadPost *.scss setl foldmethod=indent
-au BufNewFile,BufReadPost *.sass setl foldmethod=indent
-au BufRead,BufNewFile *.scss set filetype=scss
-
-"  ---------------------------------------------------------------------------
-"  Misc File Types
-"  ---------------------------------------------------------------------------
-
-"  ---------------------------------------------------------------------------
 "  GUI
 "  ---------------------------------------------------------------------------
 
