@@ -53,7 +53,16 @@ colorscheme desert-warm-256
 highlight clear SignColumn
 highlight CursorLine term=NONE cterm=NONE ctermbg=236
 
+" make vertical split bar character a space (so not visible)
+set fillchars+=vert:\ 
+
 set splitbelow splitright
+
+" switch to relative numbers in normal mode
+autocmd BufLeave * :set norelativenumber
+autocmd BufEnter * :set relativenumber
+autocmd InsertEnter * :set norelativenumber
+autocmd InsertLeave * :set relativenumber
 
 "  ---------------------------------------------------------------------------
 "  Text Formatting
@@ -87,8 +96,6 @@ set tildeop
 "  Status Line
 "  ---------------------------------------------------------------------------
 
-" path
-set statusline=%f
 " flags
 set statusline+=%m%r%h%w
 " git branch
@@ -99,15 +106,19 @@ set statusline+=\ [%{strlen(&fenc)?&fenc:&enc}]
 if exists("$rvm_path")
   set statusline+=\ %{rvm#statusline()}
 end
+" path
+set statusline=%f
 " line x of y
 set statusline+=\ [line\ %l\/%L]
 
 " Colour
 hi StatusLine ctermfg=Black ctermbg=White
+hi StatusLineNC ctermfg=Black ctermbg=Grey
 
 " Change colour of statusline in insert mode
 au InsertEnter * hi StatusLine ctermbg=DarkBlue
 au InsertLeave * hi StatusLine ctermfg=Black ctermbg=White
+
 
 "  ---------------------------------------------------------------------------
 "  Mappings
@@ -120,14 +131,16 @@ set ignorecase
 set smartcase
 set incsearch
 set showmatch
-set nohlsearch
+" set nohlsearch
+
+hi Search ctermfg=NONE ctermbg=NONE cterm=underline
 
 " Toggle search highlighting
 noremap <F4> :set hlsearch! hlsearch?<CR>
 
-" search (forwards)
+" search (forwards), drops a mark first
 nmap <space> /
-" search (backwards)
+" search (backwards), drops a mark first
 map <c-space> ?
 
 " Center screen when scrolling search results
@@ -153,8 +166,10 @@ nnoremap k gk
 
 if executable('ag')
   nnoremap <leader>a :Ag! 
+  nnoremap <leader>aa :Ag! <cword><CR>
 elseif executable('ack')
   nnoremap <leader>a :Ack! 
+  nnoremap <leader>a :Ack! <cword><CR>
   let g:ackprg="ack -H --nocolor --nogroup --column"
 endif
 
@@ -269,6 +284,10 @@ let g:yankring_history_dir = '/tmp'
 
 nmap <leader>gs :Gstatus<CR>
 nmap <leader>gc :Gcommit<CR>i
+
+" GitGutter
+
+let g:gitgutter_map_keys = 0
 
 "  ---------------------------------------------------------------------------
 "  Tumx/Rspec
