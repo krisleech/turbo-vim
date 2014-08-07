@@ -290,7 +290,7 @@ nmap <leader>gc :Gcommit<CR>i
 let g:gitgutter_map_keys = 0
 
 "  ---------------------------------------------------------------------------
-"  Tumx/Rspec
+"  Tmux/Rspec
 "  ---------------------------------------------------------------------------
 
 " default mappings ,t and ,T for running all specs in buffer and spec on
