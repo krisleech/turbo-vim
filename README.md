@@ -1,4 +1,4 @@
-# Turbo VIM for Ruby/Rails
+# Turbo VIM for Clojure
 
 ```
   _              _                   _
@@ -8,7 +8,7 @@
   \__|\__,_|_|  |_.__/ \___/    \_/ |_|_| |_| |_|
 ```
 
-Vim configuration with support for Ruby, Rspec, Rails, RVM and Git.
+Vim configuration Clojure, Git, Tmux
 
 The aim is to support a terminal based workflow within a Tmux session allowing
 specs to be run asynchronously.
@@ -76,28 +76,6 @@ See `.vimrc` for more.
 
 ## Plugins
 
-### Rails
-
-*Lots* of stuff - get to know this plugin!
-
-`:A` - jump to/from test
-
-`:Rmodel` - jump to model
-
-`:Rview` - jump to view
-
-`:help rails`
-
-### vim-ruby-doc
-
-Open documentation in a browser for the word under the cursor:
-
-`RB` for Ruby
-
-`RS` for RSpec
-
-`RR` for Rails
-
 ### Turbux + Vimux (,t / ,T / ,tt)
 
 `,t` - run all tests for current buffer
@@ -115,22 +93,6 @@ the spec to that pane. Otherwise a new pane is created.
 Zoom the current window if you have multiple splits.
 
 Press `,z` again to toogle back to normal.
-
-### ruby-block
-
-Provides text-objects for Ruby blocks
-
-`var` (visual around Ruby)
-
-`vir` (visual inner Ruby)
-
-`ar` / `ir` (expand/contract selection)
-
-`cir` (change inner Ruby)
-
-`dar` (delete around Ruby)
-
-http://vimcasts.org/blog/2010/12/a-text-object-for-ruby-blocks/
 
 ### fugitive
 
@@ -221,38 +183,11 @@ correct text object or motion.
 
 `cst<div>` - change surround tag to `<div>`
 
-### colorschemes
-
-Lots of colourschemes, I like Solarized and desert-warm-256
-
-`:set colorscheme desert-warm-256`
-
-`:set background=dark`
-
-`:set background=light`
-
-If you have problems with colors not displaying correctly ensure you start tmux
-in 256 colour mode: `tmux -2`.
-
-### Indent Guides (`,ig`)
-
-Show indent levels by way of vertical lines.
-
 ### vundle
 
 Plugin manager and part of the reason why my vimfiles as so compact
 
 ## INSTALLATION
-
-Note: If you are using RVM make sure you use system ruby before installation.
-    
-    rvm use system
-
-Note: If you already have Vim installed ensure it has support for Ruby:
-
-    vim --version | grep ruby
-
-You should see `+ruby,` if you see `-ruby` you need to reinstall Vim with Ruby support
 
 ### Install Vim and Tmux (if not already installed)
 
@@ -328,27 +263,7 @@ Note: MacOS comes with the BSD version of ctags which is not compatible.
     sudo apt-get install ack-grep
     sudo ln -s /usr/bin/ack-grep /usr/local/bin/ack
 
-## Helpful Stuff
-
-- http://github.com/krisleech/vimfiles/wiki
-- http://walking-without-crutches.heroku.com/image/images/vi-vim-cheat-sheet.png
-- http://yehudakatz.com/2010/07/29/everyone-who-tried-to-convince-me-to-use-vim-was-wrong/
-- http://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim/1220118#1220118
-- http://stevelosh.com/blog/2010/09/coming-home-to-vim/#important-vimrc-lines
-- `:help key-notation`
-- http://vimcasts.org/
-
 ## Acknowledgments
 
 - Tim Pope (of course) http://tpo.pe/
-- https://github.com/carlhuda/janus
-- https://github.com/rson/vimfiles/blob/master/plugins.vim
-- https://github.com/codegram/vimfiles
-- https://www.destroyallsoftware.com/file-navigation-in-vim.html
-- https://github.com/alexreisner/dotfiles/blob/master/.vimrc
-- https://github.com/docwhat/homedir-vim/blob/master/vimrc/.vimrc
-- http://items.sjbach.com/319/configuring-vim-right
-- https://github.com/sickill/dotfiles/blob/master/.vimrc
 - #vim on freenode
- - woldrich
- - spiiph

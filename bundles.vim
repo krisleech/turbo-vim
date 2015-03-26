@@ -12,9 +12,6 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Color schemes
-Plugin 'flazz/vim-colorschemes'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'ColorSchemeMenuMaker'
 Plugin 'rainux/vim-desert-warm-256'
 
 " Files
@@ -28,8 +25,6 @@ Plugin 'Townk/vim-autoclose'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'vim-scripts/ZoomWin'
 Plugin 'ervandew/supertab'
-" Plugin "Valloric/YouCompleteMe"
-Plugin 'gmarik/snipmate.vim'
 Plugin 'airblade/vim-rooter'
 Plugin 'vim-scripts/YankRing.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
@@ -40,23 +35,6 @@ elseif executable('ack')
   Plugin 'mileszs/ack.vim'
 endif
 
-Plugin 'kshenoy/vim-signature'
-
-" Rails
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-haml'
-Plugin 'cakebaker/scss-syntax.vim'
-" Plugin 'kchmck/vim-coffee-script'
-Plugin 'tpope/vim-cucumber'
-
-" Ruby
-if exists("$rvm_path")
-  Plugin 'tpope/vim-rvm'
-end
-Plugin 'tpope/vim-endwise'
-Plugin 'kana/vim-textobj-user'
-Plugin 'nelstrom/vim-textobj-rubyblock'
-Plugin 'lucapette/vim-ruby-doc'
 
 " Git
 Plugin 'tpope/vim-fugitive'
