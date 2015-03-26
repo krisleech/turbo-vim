@@ -76,6 +76,11 @@ See `.vimrc` for more.
 
 ## Plugins
 
+### Sexp (text objects for Clojure) https://github.com/guns/vim-sexp
+
+`if` / `af` - inner/outer form
+`(` move to matching bracket
+
 ### Turbux + Vimux (,t / ,T / ,tt)
 
 `,t` - run all tests for current buffer

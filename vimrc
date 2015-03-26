@@ -49,7 +49,8 @@ set previewheight=20
 
 set t_Co=256
 set background=dark
-colorscheme desert-warm-256
+"colorscheme desert-warm-256
+colorscheme Tomorrow-Night
 highlight clear SignColumn
 highlight CursorLine term=NONE cterm=NONE ctermbg=236
 
@@ -226,13 +227,12 @@ map <leader>rt :call VimuxRunCommand("clear;ctags --sort=yes --extra=+f --langua
 "  Plugins
 "  ---------------------------------------------------------------------------
 
-" neocomplcache
+" Clojure
 
-" if !exists('g:neocomplcache_omni_patterns')
-"   let g:neocomplcache_omni_patterns = {}
-" endif
-" let g:neocomplcache_enable_at_startup = 1
-" let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 
 " Ctrlp
 map <leader>b :CtrlPBuffer<CR>
@@ -301,45 +301,9 @@ let VimuxHeight = "40"
 let VimuxOrientation = "v"
 
 if exists('$TMUX')
-
-  let g:turbux_command_prefix = 'bundle exec'
-
-  " Run all specs (writes buffer first)
-  map <leader>tt ,w:call VimuxRunCommand("clear; bundle exec rspec spec")<CR>
-
-  " Close specs pane
-  map <leader>tx :call VimuxRunCommand("clear")<CR>:call CloseVimTmuxPanes()<CR>
-
-  " Clear specs pane
-  map <leader>tc :call VimuxRunCommand("clear")<CR>
-
   " Run shell command
   map <leader>rc :PromptVimTmuxCommand<CR>
-
-  " migrate the database
-  map <leader>rm :call VimuxRunCommand("clear; bundle exec rake db:migrate")<CR>
-
 endif
-
-
-"  ---------------------------------------------------------------------------
-"  Ruby/Rails
-"  ---------------------------------------------------------------------------
-
-" vim-ruby-doc
-
-let g:ruby_doc_command='open' " MacOS
-
-" Execute current buffer as ruby (Shift + r)
-" map <S-r> :w !ruby<CR>
-
-" Skip to Model, View or Controller
-map <Leader>m :Rmodel 
-map <Leader>v :Rview 
-map <Leader>c :Rcontroller 
-
-" Other files to consider Ruby
-au BufRead,BufNewFile Gemfile,Rakefile,Thorfile,config.ru,Vagrantfile,Guardfile,Capfile set ft=ruby
 
 "  ---------------------------------------------------------------------------
 "  GUI
